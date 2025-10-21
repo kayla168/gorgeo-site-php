@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 0 * * *'  # 每天 UTC 00:00，等于北京时间 08:00 自动执行一次
 
 jobs:
   sitemap:
