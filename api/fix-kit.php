@@ -1,21 +1,20 @@
 <?php
-// /drop/fix/index.php
+// /api/fix-kit.php
 
-// 1. 引入我們的內容數據
+// 關鍵修改：因為 data.php 現在和它在同一個 api/ 目錄下，路徑變得更簡單了
 require_once __DIR__ . '/data.php';
 
-// 2. 從URL獲取用戶想要哪個資料
+// 從URL獲取用戶想要哪個資料
 $kit_slug = isset($_GET['kit']) ? $_GET['kit'] : '';
 
-// 3. 檢查資料是否存在
+// 檢查資料是否存在
 if (!isset($kits[$kit_slug])) {
     header("HTTP/1.0 404 Not Found");
-    // 為了安全，最好顯示一個通用的錯誤頁面
     readfile($_SERVER['DOCUMENT_ROOT'] . '/drop/error.html');
     exit;
 }
 
-// 4. 獲取當前資料的所有內容
+// 獲取當前資料的所有內容
 $current_kit = $kits[$kit_slug];
 ?>
 
