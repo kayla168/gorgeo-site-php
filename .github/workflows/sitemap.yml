@@ -3,36 +3,45 @@ name: Generate and Submit Sitemap
 on:
   push:
     branches:
-      - main  # 监听主分支的变动
+      - main
 
 jobs:
   sitemap:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write  # ⬅️ 关键！让 GITHUB_TOKEN 拥有推送权限
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # ⬅️ 关键！获取完整的 Git 历史，才能 push
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # 使用 Node.js 版本 16，或者根据你的需要调整
+          node-version: '16'
 
       - name: Install dependencies
-        run: |
-          npm install
+        run: npm install
 
       - name: Generate sitemap
         run: |
-          npx sitemap-generator-cli https://www.gorgeofasteners.com --output ./public/sitemap.xml  # 生成 sitemap.xml 文件
+          npx sitemap-generator-cli https://www.gorgeofasteners.com --output ./public/sitemap.xml
 
-      - name: Commit sitemap
+      - name: Configure Git
         run: |
+          git config --global user.email "github-actions@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
-          git config --global user.email "your-email@example.com"
+
+      - name: Commit and Push sitemap.xml
+        run: |
           git add public/sitemap.xml
-          git commit -m "Update sitemap"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/kayla168/gorgeo-site-php.git
+          git commit -m "Auto-update sitemap.xml"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Submit sitemap to Google Search Console
         run: |
