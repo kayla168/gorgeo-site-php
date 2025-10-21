@@ -1,4 +1,4 @@
-name: Test Sitemap Generation Only
+name: Generate and Push Sitemap
 
 on:
   push:
@@ -11,7 +11,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # 关键：允许推送权限
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -27,3 +29,13 @@ jobs:
 
       - name: Show sitemap content
         run: cat ./sitemap.xml
+
+      - name: Auto-commit updated sitemap.xml
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "chore: auto-update sitemap.xml [skip ci]" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
