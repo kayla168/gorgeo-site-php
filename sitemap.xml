@@ -1,29 +1,39 @@
-name: Test Sitemap Generation
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  sitemap:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Generate sitemap
-        run: |
-          npx sitemap-generator-cli https://www.gorgeofasteners.com --output ./sitemap.xml
-
-      - name: Show sitemap content
-        run: cat ./sitemap.xml
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.gorgeofasteners.com/</loc>
+  </url>
+  <url>
+    <loc>https://www.gorgeofasteners.com/contact/</loc>
+  </url>
+  <url>
+    <loc>https://www.gorgeofasteners.com/services</loc>
+  </url>
+  <url>
+    <loc>https://www.gorgeofasteners.com/blog/</loc>
+  </url>
+  <url>
+    <loc>https://www.gorgeofasteners.com/applications/</loc>
+  </url>
+  <url>
+    <loc>https://www.gorgeofasteners.com/blog/vibration-loosening-fix/vibration-loosening-fix.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gorgeofasteners.com/blog/coating-induced-jam-fit/coating-induced-jam-fit.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gorgeofasteners.com/blog/tolerance-trap-in-spec-failure/tolerance-trap-in-spec-failure.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gorgeofasteners.com/applications/cmm-fit-jam-failure/cmm-fit-jam-failure.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gorgeofasteners.com/applications/crossbelt-fatigue-failure/crossbelt-fatigue-failure.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gorgeofasteners.com/applications/agv-wedge-lock-design/agv-wedge-lock-design.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gorgeofasteners.com/contact/index.html</loc>
+  </url>
+</urlset>
