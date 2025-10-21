@@ -1,7 +1,17 @@
 {
   "functions": {
-    "api/*.php": {
+    "api/**/*.php": {
+      "runtime": "vercel-php@0.7.4",
+      "includeFiles": "drop/**"
+    },
+    "drop/fix/**/*.php": {
       "runtime": "vercel-php@0.7.4"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/drop/fix-kit/:kit_slug/",
+      "destination": "/drop/fix/index.php?kit=:kit_slug"
+    }
+  ]
 }
