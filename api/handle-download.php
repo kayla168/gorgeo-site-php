@@ -12,7 +12,22 @@ $document_library = [
         'subject'   => 'Here is your requested guide: The "6 Trouble Zones" Checklist',
         'body'      => "Hi there,<br><br>As requested, attached is your copy of the <strong>\"6 Hidden Trouble Zones in Conveyor Systems\"</strong> checklist.<br><br>This isn't a theoretical list. It's the exact field-tested tool our consultants use to diagnose the root cause of over 90% of common assembly failures. Use it to spot risks in your own designs before they become production problems.<br><br>Once the checklist helps you identify a potential trouble zone, the next step is to define a robust solution. Reply to this email with your drawing for a confidential review by our engineering team.<br><br>"
     ],
-    // ... 此處省略其他文檔定義，它們保持不變 ...
+  
+     'Blind_Fit' => [
+        'file_path' => __DIR__ . '/../drop/GorgeoFasteners_Checklist_BlindFit_SleeveDesign.pdf',
+        'subject'   => 'Here is the "Blind-Fit Sleeve Design Checklist" you requested',
+        'body'      => "Hi there,<br><br>Thank you for requesting our technical resources. Attached is the <strong>\"Blind-Fit Sleeve Design Checklist\"</strong>.<br><br>This guide highlights 7 commonly missed features — from extraction grooves to insertion stops — that often turn blind fits into stuck or unserviceable joints, leading to costly downtime.<br><br>If you’re facing a specific sleeve or insert challenge, let's move from checklist to solution. Reply with your drawing for targeted feedback from our application engineers.<br><br>"
+    ],
+    'pre_assembly' => [
+        'file_path' => __DIR__ . '/../drop/GorgeoFasteners_PreAssembly_Drawing_Checklist_2025.pdf',
+        'subject'   => 'Your Requested Pre-Assembly Drawing Checklist',
+        'body'      => "Hi there,<br><br>As requested, attached is your copy of the <strong>Pre-Assembly Drawing Checklist</strong>.<br><br>We developed this tool to pre-flight designs internally, catching minor oversights before they escalate into major rework or line-down situations. Use it to ensure your drawings are robust from the start.<br><br>If the checklist flags a potential issue, our engineers can help you find a solution. Reply with your drawing for a targeted analysis.<br><br>"
+    ],
+    'tolerance' => [
+        'file_path' => __DIR__ . '/../drop/GorgeoFasteners_Fastener_Tolerance_Checklist_2025.pdf',
+        'subject'   => 'Your Requested Fastener Tolerance Checklist for Sorters',
+        'body'      => "Hi there,<br><br>Attached is your <strong>Fastener Tolerance Checklist</strong>, specifically tailored for high-speed sorter modules.<br><br>This checklist focuses on the geometric controls needed to prevent joint relaxation and subsequent re-torque events within the critical first 72 hours of operation — a common failure point in sortation systems.<br><br>When you're ready to lock in your design's long-term reliability, reply with your drawing for a detailed tolerance stack-up review.<br><br>"
+    ],
     'drop032' => [
         'file_path' => __DIR__ . '/../drop/case-study-coating-jam-fit/GorgeoFasteners_CaseStudy_Coating_Jam_2025.pdf',
         'subject'   => 'Your Requested Teardown: "CAD Passed, Coating Jammed" Case Study',
