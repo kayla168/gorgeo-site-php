@@ -37,3 +37,10 @@ jobs:
           curl -X POST -H "Authorization: Bearer ${{ secrets.GOOGLE_API_KEY }}" \
           -F "file=@public/sitemap.xml" \
           "https://www.googleapis.com/upload/searchconsole/v1/sites/https://www.gorgeofasteners.com/sitemaps"
+
+
+      - name: Push sitemap to repository
+  run: |
+    git add public/sitemap.xml
+    git commit -m "Update sitemap"
+    git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/kayla168/gorgeo-site-php.git
