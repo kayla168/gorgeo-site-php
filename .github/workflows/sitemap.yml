@@ -1,4 +1,4 @@
-name: Generate and Submit Sitemap
+name: Test Sitemap Generation Only
 
 on:
   push:
@@ -9,14 +9,9 @@ jobs:
   sitemap:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write  # 允许 GITHUB_TOKEN 写权限
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # 获取完整的 Git 历史，避免推送失败
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -30,19 +25,5 @@ jobs:
         run: |
           npx sitemap-generator-cli https://www.gorgeofasteners.com --output ./public/sitemap.xml
 
-      - name: Configure Git
-        run: |
-          git config --global user.email "github-actions@users.noreply.github.com"
-          git config --global user.name "GitHub Actions"
-
-      - name: Commit and Push sitemap.xml
-        run: |
-          git add public/sitemap.xml
-          git commit -m "Auto-update sitemap.xml"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/kayla168/gorgeo-site-php.git
-
-      - name: Submit sitemap to Google Search Console
-        run: |
-          curl -X POST -H "Authorization: Bearer ${{ secrets.GOOGLE_API_KEY }}" \
-          -F "file=@public/sitemap.xml" \
-          "https://www.googleapis.com/upload/searchconsole/v1/sites/https://www.gorgeofasteners.com/sitemaps"
+      - name: Show sitemap content
+        run: cat ./public/sitemap.xml
