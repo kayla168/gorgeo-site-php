@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # 允许推送权限
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -30,15 +30,22 @@ jobs:
       - name: Show sitemap content
         run: cat ./sitemap.xml
 
+      - name: Check if sitemap.xml changed
+        id: check_diff
+        run: |
+          git add sitemap.xml
+          git diff --cached --quiet sitemap.xml || echo "changed=true" >> $GITHUB_OUTPUT
+
       - name: Auto-commit updated sitemap.xml
+        if: steps.check_diff.outputs.changed == 'true'
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml
-          git commit -m "chore: auto-update sitemap.xml [skip ci]" || echo "No changes to commit"
+          git commit -m "chore: auto-update sitemap.xml [skip ci]"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Notify Google to re-crawl sitemap
+        if: steps.check_diff.outputs.changed == 'true'
         run: curl "https://www.google.com/ping?sitemap=https://www.gorgeofasteners.com/sitemap.xml"
