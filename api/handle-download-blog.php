@@ -1,10 +1,11 @@
 <?php
-// 步骤 1：使用 Composer 的自动加载器
+// 關鍵修改 #1：使用 Composer 的自動載入器，替換所有舊的 require 語句
 require __DIR__ . '/../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// 文檔庫的定義保持不變，路徑也是正確的
 $document_library = [
     'trouble_zones' => [
         'file_path' => __DIR__ . '/../drop/GorgeoFasteners_6_Trouble_Zones_Checklist_2025.pdf',
@@ -31,71 +32,54 @@ $document_library = [
         'subject'   => 'Your Pre-Assembly Drawing Checklist is Ready',
         'body'      => "Hi there,<br><br>As promised, here’s your copy of the <strong>Pre-Assembly Drawing Checklist</strong>.<br><br>This tool was developed for our own internal reviews—to spot the kind of small geometric oversights that turn into big-line failures. It’s quick to use and often catches what spec checks miss.<br><br>If any section raises a red flag on your side, just reply with your drawing. We’ll run a full diagnostic at no cost, and flag what others often overlook.<br><br>"
     ],
-// 在 $document_library 数组中
-'prototype_report' => [
-    'file_path' => __DIR__ . '/../drop/GorgeoFasteners_Structural_Improvement_Suggestions_Report_2025.pdf',
-    'subject'   => 'Your Sample Prototype Report is Attached',
-    'body'      => "Hi there,<br><br>Here’s the sample report from a real-world prototype build.<br><br>It walks through how we correlate physical measurements with structural risks—and more importantly, how small design tweaks can prevent costly rework at full scale.<br><br>If you’ve got a drawing or sample you'd like us to stress-test the same way, just reply—we’ll walk through it from a geometry-first lens.<br><br>"
-],
-
-'assembly_audit_report' => [
-    'file_path' => __DIR__ . '/../drop/GorgeoFasteners_Structural_Improvement_Suggestions_Report_2025.pdf',
-    'subject'   => 'Your Sample Assembly Audit Report',
-    'body'      => "Hi there,<br><br>Attached is your copy of the sample <strong>Assembly Audit Report</strong>.<br><br>It shows how we reverse-engineer failures from the final assembly backward—linking symptoms like misalignment, jamming, or micro-shifts to subtle geometric root causes.<br><br>If your team is chasing a “mystery failure” right now, send over the drawing or part photo—we’ll run a full fit-path diagnosis, no charge.<br><br>"
-],
-
-// ✅ 新增：为“错位案例研究 (CMM合格但装配卡死)”添加的邮件文案--apolications
+    'prototype_report' => [
+        'file_path' => __DIR__ . '/../drop/GorgeoFasteners_Structural_Improvement_Suggestions_Report_2025.pdf',
+        'subject'   => 'Your Sample Prototype Report is Attached',
+        'body'      => "Hi there,<br><br>Here’s the sample report from a real-world prototype build.<br><br>It walks through how we correlate physical measurements with structural risks—and more importantly, how small design tweaks can prevent costly rework at full scale.<br><br>If you’ve got a drawing or sample you'd like us to stress-test the same way, just reply—we’ll walk through it from a geometry-first lens.<br><br>"
+    ],
+    'assembly_audit_report' => [
+        'file_path' => __DIR__ . '/../drop/GorgeoFasteners_Structural_Improvement_Suggestions_Report_2025.pdf',
+        'subject'   => 'Your Sample Assembly Audit Report',
+        'body'      => "Hi there,<br><br>Attached is your copy of the sample <strong>Assembly Audit Report</strong>.<br><br>It shows how we reverse-engineer failures from the final assembly backward—linking symptoms like misalignment, jamming, or micro-shifts to subtle geometric root causes.<br><br>If your team is chasing a “mystery failure” right now, send over the drawing or part photo—we’ll run a full fit-path diagnosis, no charge.<br><br>"
+    ],
     'misalignment_case_study' => [
         'file_path' => __DIR__ . '/../drop/GorgeoFasteners_Case_Misalignment_Sleeve_2025.pdf',
         'subject'   => 'Case Study Attached: Why CMM-Passed Parts Still Jam',
         'body'      => "Hi there,<br><br>As requested, here is your copy of the <strong>Case Study: Misalignment Sleeve Failure</strong>.<br><br>This is the deep dive into the exact problem from the article: how a part can pass every CMM check and meet H7/g6 specs, yet still jam on the assembly line due to hidden geometric traps.<br><br>The sketches and diagnostic checklist inside are the same tools we used to pinpoint the root cause. If this scenario feels too familiar, just reply to this email with your drawing. We’ll provide a complimentary fit diagnosis.<br><br>"
     ],
-
- 'anti_vibration_checklist' => [
-    'file_path' => __DIR__ . '/../drop/GorgeoFasteners_Anti-Vibration_Design_Checklist_2025.pdf',
-    'subject'   => 'Checklist Attached: Preventing Fatigue Failure at Its Source',
-    'body'      => "Hi there,<br><br>Here is your copy of the <strong>Anti-Vibration Design Checklist</strong>, as requested.<br><br>As the article on flange failure demonstrated, a catastrophic fatigue fracture is often the final, loudest symptom of chronic, unaddressed vibration and preload loss.<br><br>This checklist provides a geometry-first approach to diagnosing and fixing those root causes. Use it to audit your own joints for the hidden risks—like eccentric loading and micro-slip—that lead to failure. If you check off more than two boxes, reply to this email with your drawing. We'll provide a complimentary analysis of its stability under dynamic loads.<br><br>"
-],
-
-'vibration_fixes' => [
-    'file_path' => __DIR__ . '/../drop/GorgeoFasteners_Anti-Vibration_Design_Checklist_2025.pdf',
-    'subject'   => 'Your Guide Attached: The Geometry Behind the AGV Loosening Fix',
-    'body'      => "Hi there,<br><br>Here is your copy of the <strong>Anti-Vibration Design Checklist</strong>.<br><br>As the AGV hub article demonstrated, the most robust way to prevent loosening is through intelligent geometry, not just more torque or friction. The wedge-lock thread is an advanced application of these fundamental principles.<br><br>This checklist breaks down those foundational principles. Use it to audit any joint under dynamic load for the hidden risks—like micro-slip and preload decay—that traditional split washers and locknuts simply can't solve. If you find your current designs flag multiple risks, reply to this email with the drawing. We'll provide a complimentary analysis of how to apply these geometric principles to your specific application.<br><br>"
-],
-
-
-//新增为：为“(错位案例研究 CMM合格但装配卡死)”添加的邮件文案--侧边栏
-
-// ✅ 新增：为侧边栏 "Fix Kits" 添加的邮件文案
-'coating_fit_jam_kit' => [
-    'file_path' => __DIR__ . '/../drop/fix/GorgeoFasteners_Case_Misalignment_Sleeve_2025.pdf',
-    'subject'   => 'Your Fix Kit Attached: Coating-Induced Fit Jam',
-    'body'      => "Hi there,<br><br>As requested, here is your copy of the <strong>Fix Kit for Coating-Induced Fit Jams</strong>.<br><br>This case study is the perfect tool for this problem, as it dissects how parts that pass all inspections can still fail due to unmodeled geometric factors—like coatings.<br><br>Use the diagnostic principles inside to stress-test your own designs against these hidden traps. If you spot a potential risk, just reply to this email with your drawing for a complimentary geometric diagnosis.<br><br>"
-],
-
-'stress_path_analysis_kit' => [
-    'file_path' => __DIR__ . '/../drop/fix/GorgeoFasteners_VibrationLoosening_Fixes.pdf',
-    'subject'   => 'Your Fix Kit Attached: Stress Path Misfit Analysis',
-    'body'      => "Hi there,<br><br>Attached is your copy of the <strong>Fix Kit for Stress Path Misfit Analysis</strong>.<br><br>A stress path misfit is the root cause of many fatigue and vibration failures. This guide provides the geometry-first principles needed to audit your joints and ensure forces are transmitted exactly as intended.<br><br>Use this checklist to identify high-risk areas in your dynamic assemblies. If you have any concerns, reply with your drawing, and we will provide a complimentary dynamic load analysis.<br><br>"
-],
-
-
-
-
-
-
-
+    'anti_vibration_checklist' => [
+        'file_path' => __DIR__ . '/../drop/GorgeoFasteners_Anti-Vibration_Design_Checklist_2025.pdf',
+        'subject'   => 'Checklist Attached: Preventing Fatigue Failure at Its Source',
+        'body'      => "Hi there,<br><br>Here is your copy of the <strong>Anti-Vibration Design Checklist</strong>, as requested.<br><br>As the article on flange failure demonstrated, a catastrophic fatigue fracture is often the final, loudest symptom of chronic, unaddressed vibration and preload loss.<br><br>This checklist provides a geometry-first approach to diagnosing and fixing those root causes. Use it to audit your own joints for the hidden risks—like eccentric loading and micro-slip—that lead to failure. If you check off more than two boxes, reply to this email with your drawing. We'll provide a complimentary analysis of its stability under dynamic loads.<br><br>"
+    ],
+    'vibration_fixes' => [
+        'file_path' => __DIR__ . '/../drop/GorgeoFasteners_Anti-Vibration_Design_Checklist_2025.pdf',
+        'subject'   => 'Your Guide Attached: The Geometry Behind the AGV Loosening Fix',
+        'body'      => "Hi there,<br><br>Here is your copy of the <strong>Anti-Vibration Design Checklist</strong>.<br><br>As the AGV hub article demonstrated, the most robust way to prevent loosening is through intelligent geometry, not just more torque or friction. The wedge-lock thread is an advanced application of these fundamental principles.<br><br>This checklist breaks down those foundational principles. Use it to audit any joint under dynamic load for the hidden risks—like micro-slip and preload decay—that traditional split washers and locknuts simply can't solve. If you find your current designs flag multiple risks, reply to this email with the drawing. We'll provide a complimentary analysis of how to apply these geometric principles to your specific application.<br><br>"
+    ],
+    'coating_fit_jam_kit' => [
+        'file_path' => __DIR__ . '/../drop/fix/GorgeoFasteners_Case_Misalignment_Sleeve_2025.pdf',
+        'subject'   => 'Your Fix Kit Attached: Coating-Induced Fit Jam',
+        'body'      => "Hi there,<br><br>As requested, here is your copy of the <strong>Fix Kit for Coating-Induced Fit Jams</strong>.<br><br>This case study is the perfect tool for this problem, as it dissects how parts that pass all inspections can still fail due to unmodeled geometric factors—like coatings.<br><br>Use the diagnostic principles inside to stress-test your own designs against these hidden traps. If you spot a potential risk, just reply to this email with your drawing for a complimentary geometric diagnosis.<br><br>"
+    ],
+    'stress_path_analysis_kit' => [
+        'file_path' => __DIR__ . '/../drop/fix/GorgeoFasteners_VibrationLoosening_Fixes.pdf',
+        'subject'   => 'Your Fix Kit Attached: Stress Path Misfit Analysis',
+        'body'      => "Hi there,<br><br>Attached is your copy of the <strong>Fix Kit for Stress Path Misfit Analysis</strong>.<br><br>A stress path misfit is the root cause of many fatigue and vibration failures. This guide provides the geometry-first principles needed to audit your joints and ensure forces are transmitted exactly as intended.<br><br>Use this checklist to identify high-risk areas in your dynamic assemblies. If you have any concerns, reply with your drawing, and we will provide a complimentary dynamic load analysis.<br><br>"
+    ]
 ];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $doc_type = isset($_POST['document_type']) ? trim($_POST['document_type']) : '';
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL) || !array_key_exists($doc_type, $document_library)) {
-        header('Location: /blog/error.html'); // 使用根相对路径
+        header('Location: /blog/error.html'); // 使用根相對路徑，更健壯
         exit("Invalid input.");
     }
 
     $current_doc = $document_library[$doc_type];
+
     if (!file_exists($current_doc['file_path'])) {
         error_log("Attachment file not found for doc_type '{$doc_type}'. Path: {$current_doc['file_path']}");
         header('Location: /blog/error.html');
@@ -108,19 +92,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // 步骤 2：使用环境变量
+        // 關鍵修改 #2：將所有 $config[...] 替換為 getenv(...)
         $mail->isSMTP();
         $mail->CharSet    = 'UTF-8';
-        $mail->Host       = $_SERVER['SMTP_HOST'];
+        $mail->Host       = getenv('SMTP_HOST');
         $mail->SMTPAuth   = true;
-        $mail->Username   = $_SERVER['SMTP_USERNAME'];
-        $mail->Password   = $_SERVER['SMTP_PASSWORD'];
+        $mail->Username   = getenv('SMTP_USERNAME');
+        $mail->Password   = getenv('SMTP_PASSWORD');
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port       = (int)$_SERVER['SMTP_PORT'];
+        $mail->Port       = (int)getenv('SMTP_PORT');
 
-        $mail->setFrom($_SERVER['FROM_EMAIL'], $_SERVER['FROM_NAME']);
+        $mail->setFrom(getenv('FROM_EMAIL'), getenv('FROM_NAME'));
         $mail->addAddress($email);
-        $mail->addReplyTo($_SERVER['FROM_EMAIL'], $_SERVER['REPLY_TO_NAME']);
+        $mail->addReplyTo(getenv('FROM_EMAIL'), getenv('REPLY_TO_NAME'));
         
         $mail->addAttachment($current_doc['file_path']);
         $mail->Subject = $current_doc['subject'];
@@ -129,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $mail->send();
         
-        header('Location: /blog/casestudy-sent.html');
+        header('Location: /blog/casestudy-sent.html'); // 使用根相對路徑
         exit();
     } catch (Exception $e) {
         error_log("Mailer Error for {$email} requesting {$doc_type}: {$mail->ErrorInfo}");
