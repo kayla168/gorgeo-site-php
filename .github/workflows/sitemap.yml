@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # 关键：允许推送权限
+          token: ${{ secrets.GITHUB_TOKEN }}  # 允许推送权限
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -39,3 +39,6 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify Google to re-crawl sitemap
+        run: curl "https://www.google.com/ping?sitemap=https://www.gorgeofasteners.com/sitemap.xml"
