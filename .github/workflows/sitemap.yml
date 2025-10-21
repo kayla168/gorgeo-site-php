@@ -23,7 +23,7 @@ jobs:
 
       - name: Generate sitemap
         run: |
-          npx sitemap-generator-cli https://www.gorgeofasteners.com --output ./public/sitemap.xml
+          npx sitemap-generator-cli https://www.gorgeofasteners.com --output ./sitemap.xml
 
       - name: Show sitemap content
-        run: cat ./public/sitemap.xml
+        run: cat ./sitemap.xml
