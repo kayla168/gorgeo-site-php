@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * *'  # 每天 UTC 00:00，等于北京时间 08:00 自动执行一次
+    - cron: '0 0 * * *'  # 每天 UTC 0 点运行（北京时间 8 点）
 
 jobs:
   sitemap:
@@ -50,4 +50,10 @@ jobs:
 
       - name: Notify Google to re-crawl sitemap
         if: steps.check_diff.outputs.changed == 'true'
-        run: curl "https://www.google.com/ping?sitemap=https://www.gorgeofasteners.com/sitemap.xml"
+        run: |
+          curl "https://www.google.com/ping?sitemap=https://www.gorgeofasteners.com/sitemap.xml"
+
+      - name: Notify Bing to re-crawl sitemap
+        if: steps.check_diff.outputs.changed == 'true'
+        run: |
+          curl "https://www.bing.com/ping?sitemap=https://www.gorgeofasteners.com/sitemap.xml"
