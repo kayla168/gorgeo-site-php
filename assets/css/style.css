@@ -1,0 +1,1663 @@
+/* ========================
+   🌐 全局基础样式
+   ======================== */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #333;
+  padding-top: 70px;
+}
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ========================
+   📌 顶部导航栏样式
+   ======================== */
+header {
+  background: #ffffff;
+  padding: 16px 32px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.logo {
+  height: 40px;
+  vertical-align: middle;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+header nav a.active {
+  border-bottom: 2px solid #FF9933;
+  color: #FF9933;
+}
+
+/* ========================
+   🎯 Hero 区域
+   ======================== */
+.hero {
+  background: linear-gradient(135deg, #fdf7f1 60%, #ffffff);
+  padding: 100px 16px 80px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.8em;
+  margin-bottom: 16px;
+  color: #000;
+}
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 32px;
+  color: #666;
+}
+
+/* ========================
+   🧱 区块 Section
+   ======================== */
+.section {
+  padding: 64px 16px;
+}
+.section.dark {
+  background: #fdf7f1;
+}
+.section h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 2em;
+  position: relative;
+}
+.section h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #FF9933;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+.section-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+
+/* ========================
+   📦 卡片 Cards
+   ======================== */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  text-align: center;
+}
+.card, .support-card {
+  background: #fffaf5;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  flex: 1 1 300px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.card p, .support-card p {
+  flex-grow: 1;
+}
+.card:hover, .support-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ========================
+   ✉️ 表单 & 按钮
+   ======================== */
+.cta-button {
+  background: #FF9933;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.cta-button:hover {
+  background: #e67e00;
+  transform: translateY(-2px);
+}
+.lead-form {
+  margin-top: auto;
+  padding-top: 24px;
+}
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 1em;
+}
+
+/* ========================
+   📊 特定组件
+   ======================== */
+.commitment-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.commitment-section h2 {
+  font-size: 1.5em;
+}
+.commitment-card {
+  flex: 1 1 250px;
+  text-align: center;
+}
+.commitment-card h3 {
+  margin-top: 0;
+}
+.responsive-img {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid #eee;
+}
+.case-study-caption {
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 12px;
+}
+.lead-capture-card {
+  max-width: 500px;
+  margin: 32px auto 0;
+  text-align: left;
+}
+.lead-capture-card h3 {
+  text-align: center;
+  margin-top: 0;
+}
+.lead-capture-card p {
+  text-align: center;
+}
+.privacy-note {
+  font-size: 0.8em;
+  text-align: center;
+  color: #aaa;
+  margin-top: 12px;
+}
+.faq details {
+  margin-bottom: 16px;
+  background: #fff;
+  padding: 16px 20px;
+  border-radius: 20px;
+  border: 1px solid #eee;
+}
+
+/* ========================
+   🦶 页脚 Footer
+   ======================== */
+footer {
+  padding: 40px 16px;
+  font-size: 0.9em;
+  color: #888;
+  background: #f9f9f9;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+}
+footer h4 {
+  color: #333;
+  margin-top: 0;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+  line-height: 1.8;
+}
+footer a {
+  color: #555;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #FF9933;
+}
+footer p {
+  margin: 0.5em 0;
+}
+a.disabled-link {
+  color: #999;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* ========================
+   🧩 工具类 Utility
+   ======================== */
+.w-100 {
+  width: 100%;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ========================
+   📱 响应式优化
+   ======================== */
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+  .hero h1 {
+    font-size: 2em;
+  }
+  .cta-button {
+    padding: 12px 20px;
+  }
+  footer {
+    padding: 30px 16px;
+  }
+}
+/* --- Navigation Active Link Highlight --- */
+
+/* 选项 A: 改变文字颜色为品牌色 */
+header nav a.active {
+  color: #FF9933; /* 品牌橙色 */
+}
+
+
+
+/* 选项 B: 添加下划线 */
+/*
+header nav a.active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+*/
+
+/* 选项 C: 文字加粗 */
+/*
+header nav a.active {
+  font-weight: bold;
+}
+*/
+/* checklist-sent的样式 */
+.centered-section {
+  text-align: center;
+}
+.centered-section p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* conact页面的样式 */
+/* 📩 Contact Page Layout */
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+}
+.contact-column {
+  flex: 1;
+  min-width: 320px;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (max-width: 900px) {
+  .contact-grid {
+    flex-direction: column;
+  }
+}
+
+/*blog首页*/
+/* ========================================
+   ✨ 新增：知识中心页面专属样式 ✨
+   ======================================== */
+
+/* --- 1. 顶部英雄区域 (Hero Section) --- */
+.section-hero {
+  background-color: #f8f9fa; /* 一个柔和的背景色，突出内容 */
+}
+
+.hero-content .h1-large {
+  font-size: 2.8em;
+  margin-bottom: 16px;
+  color: #000;
+  font-weight: 700;
+}
+
+.hero-content .subtitle {
+  font-size: 1.2em;
+  color: #555;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* --- 2. 精选文章模块 (Featured Article) --- */
+.featured-article {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* 图片占1份，内容占1.5份 */
+  gap: 40px;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border: 1px solid #eee;
+}
+
+.featured-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.featured-badge {
+  display: inline-block;
+  background-color: #FF9933;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 0.8em;
+  font-weight: bold;
+  border-radius: 30px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.featured-content h2 {
+  text-align: left;
+  margin-bottom: 12px;
+  font-size: 2em;
+}
+
+/* 移除h2的全局居中下划线样式 */
+.featured-content h2::after {
+  display: none;
+}
+
+.featured-content p {
+  font-size: 1.1em;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+/* --- 3. 主要操作按钮 (Primary Button) --- */
+.button-primary {
+  background: #FF9933;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px; /* 使用更圆的角以示区别 */
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.button-primary:hover {
+  background: #e67e00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 153, 51, 0.3);
+}
+
+/* --- 4. 主题分类网格 (Topic Grid) --- */
+.topic-grid {
+  display: grid;
+  /* 自动适应的响应式网格，无需媒体查询 */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.topic-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  color: #333;
+  text-decoration: none;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  border-color: #FF9933;
+  color: #FF9933;
+}
+
+/* --- 5. 最新文章列表中的标题 (Article Card Titles) --- */
+.summary-card h3 {
+    /* 确保文章卡片中的标题样式正确 */
+    font-size: 1.5em; /* 调整为合适的字号 */
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+/* --- 6. 邮件订阅模块 (Newsletter CTA) --- */
+.section-cta {
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 80px 16px;
+  border-radius: 20px;
+  margin: 0 16px 60px 16px; /* 在大屏幕上增加一些边距 */
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-form input[type="email"] {
+  flex-grow: 1; /* 输入框占据大部分空间 */
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background-color: #495057;
+  color: #fff;
+  font-size: 1em;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+  color: #aaa;
+}
+
+.newsletter-form button {
+  background: #FF9933;
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #e67e00;
+}
+
+
+/* ========================================
+   📱 响应式优化（补充）
+   ======================================== */
+@media (max-width: 900px) {
+  .featured-article {
+    grid-template-columns: 1fr; /* 在平板及以下设备，堆叠为单列 */
+    gap: 24px;
+    padding: 24px;
+  }
+  
+  .featured-content {
+      text-align: center; /* 内容居中 */
+  }
+
+  .featured-content h2 {
+    text-align: center; /* 标题居中 */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content .h1-large {
+    font-size: 2.2em;
+  }
+  
+  .featured-content h2 {
+      font-size: 1.6em;
+  }
+  
+  .newsletter-form {
+    flex-direction: column; /* 在小手机上，表单元素垂直排列 */
+  }
+}
+
+
+/* ========================================
+   ✨ 新增：SEO文章模板专属样式 ✨
+   ======================================== */
+
+/* --- 1. 文章主容器与布局 (Content + Sidebar) --- */
+
+
+.sidebar {
+  /* 侧边栏样式将在下面定义 */
+}
+
+/* --- 2. 文章排版与元素样式 --- */
+.article-container h1 {
+  font-size: 2.8em;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.article-container h2 {
+  text-align: left; /* 覆盖全局的居中样式 */
+  font-size: 2em;
+  margin-top: 48px;
+  margin-bottom: 16px;
+}
+
+/* 移除文章内h2的全局居中下划线 */
+.article-container h2::after {
+  display: none; 
+}
+
+.article-container h3 {
+  font-size: 1.5em;
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.article-container p, 
+.article-container li {
+  line-height: 1.8;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.article-container blockquote {
+  border-left: 4px solid #FF9933;
+  margin: 24px 0;
+  padding: 10px 20px;
+  background-color: #fdf7f1;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+.article-container figure {
+  margin: 32px 0;
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 12px;
+  background: #f9f9f9;
+}
+.article-container figcaption {
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 10px;
+}
+.article-container figure img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+
+
+/* --- 3. 作者信息 & 文章目录 --- */
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.author-info img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #FF9933;
+}
+
+.table-of-contents {
+  background: #f8f9fa;
+  border-left: 4px solid #FF9933;
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-radius: 0 8px 8px 0;
+}
+.table-of-contents h3 {
+  margin-top: 0;
+  border: none;
+}
+.table-of-contents ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.table-of-contents ol li {
+  margin-bottom: 8px;
+  font-size: 1em;
+}
+.table-of-contents ol li a {
+  text-decoration: none;
+  color: #333;
+}
+.table-of-contents ol li a:hover {
+  color: #FF9933;
+  text-decoration: underline;
+}
+
+
+/* --- 4. 高亮信息区块 (Callout Box & CTA Box) --- */
+.callout-box,
+.cta-box {
+  background-color: #fdf7f1;
+  border: 1px solid #FFDDB2;
+  border-left: 4px solid #e67e00;
+  padding: 24px 30px;
+  margin: 48px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.cta-box h2 {
+  margin-top: 0;
+}
+
+
+/* --- 5. 响应式调整 --- */
+@media (max-width: 900px) {
+  .article-container {
+    grid-template-columns: 1fr; /* 在平板和手机上，侧边栏移动到内容下方 */
+  }
+  .article-container h1 {
+    font-size: 2.2em;
+  }
+}
+
+/* ========================================
+   ✨ 补充：侧边栏样式 ✨
+   ======================================== */
+
+.sidebar-widget {
+  background-color: #f8f9fa;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  border: 1px solid #eee;
+}
+
+.sidebar-widget h4 {
+  margin-top: 0;
+  border-bottom: 2px solid #FF9933;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  font-size: 1.2em;
+}
+
+.sidebar-widget p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.sidebar-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-widget ul li {
+    font-size: 1em;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-widget ul li:last-child {
+    border-bottom: none;
+}
+
+.sidebar-widget ul li a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sidebar-widget .cta-button {
+  width: 100%;
+  box-sizing: border-box; /* 关键：让width计算时包含padding和border */
+  display: block; /* 按钮占满整行 */
+  text-align: center; /* 文字居中 */
+}
+
+
+.article-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.article-content {
+  flex: 1;
+  max-width: 720px;
+}
+
+/*
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  margin-top: 40px;
+}
+*/
+.sidebar {
+  position: fixed;
+  top: 100px; /* 与 header 保持一定间距，可按你导航栏高度调整 */
+  width: 300px;
+  flex-shrink: 0;
+}
+
+
+
+
+
+
+
+/*文章图片大小*/
+
+.article-content figure img,
+.article-content figure picture {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/*文章间隔*/
+.article-content h2 {
+  font-size: 2em;
+  margin-top: 32px;
+  margin-bottom: 12px;  /* 控制标题和正文间距 */
+}
+
+.article-content p {
+  margin-top: 0;         /* 避免与 h2 重叠产生大间距 */
+  margin-bottom: 16px;
+}
+
+
+.article-content h2 {
+  font-size: 2em;
+  padding-top: 1px;      /* 👈 防止 margin 合并 */
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.article-content section h2 {
+  margin-top: 24px !important;
+  padding-top: 0 !important;
+}
+
+.article-content section {
+  overflow: hidden;
+}
+
+.article-content section h2 {
+  margin-top: 24px !important;
+  padding-top: 0 !important;
+}
+
+
+.lead-form small {
+  display: block;
+  margin-top: 10px;
+  color: #888;
+  text-align: center;
+}
+
+
+/*侧边栏固定*/
+.sidebar {
+  position: sticky;
+  top: 80px; /* 距离页面顶部20px后开始固定 */
+  align-self: flex-start; /* 如果用了flex布局，避免被拉伸 */
+}
+/*文章首页底部文章链接配图尺寸*/
+.article-text-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.article-text-item a {
+  text-decoration: none;
+  display: block;
+  padding: 20px 24px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-text-item a:hover {
+  border-color: #FF9933;
+  box-shadow: 0 4px 12px rgba(255, 153, 51, 0.1);
+}
+
+.article-text-item h3 {
+  margin: 0 0 8px;
+  font-size: 1.3em;
+  color: #333;
+}
+
+.article-text-item p {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+}
+.article-text-item h3 {
+  margin: 0 0 8px;
+  font-size: 1.3em;
+  color: #FF9933; /* 品牌橙色 */
+}
+.article-text-list.collapsed li:nth-child(n+3) {
+  display: none;
+}
+
+.expand-btn {
+  display: block;
+  margin: 32px auto 0;
+  padding: 12px 28px;
+  background: #FF9933;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.expand-btn:hover {
+  background: #e67e00;
+}
+
+
+/*首页资源宽度*/
+.cards {
+  display: flex;
+  justify-content: center;
+}
+
+.cards .card {
+  max-width: 600px;
+  width: 100%;
+}
+
+
+/*services的FAQ样式*/
+/* FAQ模块鼠标悬停高亮效果 */
+.faq details {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 悬停时高亮边框与阴影 */
+.faq details:hover {
+  border-color: #FF9933;
+  box-shadow: 0 4px 12px rgba(255, 153, 51, 0.15);
+}
+
+/* FAQ箭头与标题字体微调 */
+.faq summary {
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+/* FAQ内容段落样式 */
+.faq details p {
+  margin-top: 8px;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+/*首页FAQ*/
+
+.faq details > summary {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    list-style: none; /* Hide the default triangle marker */
+}
+
+/* For Safari/Chrome */
+.faq details > summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq details > summary::before {
+    content: '▶'; /* The arrow character */
+    font-size: 0.8em;
+    margin-right: 12px;
+    color: #FF9933; /* A distinct, clickable color */
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-in-out; /* Smooth rotation animation */
+}
+
+.faq details[open] > summary::before {
+    transform: rotate(90deg); /* Rotate arrow when the section is open */
+}
+
+
+/*services页面*/
+.commitment-card .process-card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5; /* 保持一个优雅的比例 */
+  object-fit: cover; /* 确保图片不变形 */
+  border-radius: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 1. 专业的图片尺寸控制 (替换掉写死的height) */
+.commitment-card .process-card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5; /* 保持一个优雅的比例 */
+  object-fit: cover; /* 确保图片不变形 */
+  border-radius: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 2. FAQ交互箭头 (核心修改 #5) */
+.faq details > summary {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    list-style: none; /* 隐藏默认三角 */
+}
+
+.faq details > summary::-webkit-details-marker {
+    display: none; /* 兼容Chrome/Safari */
+}
+
+.faq details > summary::before {
+    content: '▶'; /* 箭头 */
+    font-size: 0.8em;
+    margin-right: 12px;
+    color: #FF9933; /* 醒目的颜色 */
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-in-out; /* 顺滑动画 */
+}
+
+.faq details[open] > summary::before {
+    transform: rotate(90deg); /* 展开时旋转 */
+}
+
+/* 1. 专业的图片尺寸控制 (替换掉写死的height) */
+.commitment-card .process-card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3 ; /* 保持一个优雅的比例 */
+  object-fit: cover; /* 确保图片不变形 */
+  border-radius: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 2. FAQ交互箭头 (核心修改 #5) */
+.faq details > summary {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    list-style: none; /* 隐藏默认三角 */
+}
+
+.faq details > summary::-webkit-details-marker {
+    display: none; /* 兼容Chrome/Safari */
+}
+
+.faq details > summary::before {
+    content: '▶'; /* 箭头 */
+    font-size: 0.8em;
+    margin-right: 12px;
+    color:#FF9933; /* 醒目的颜色 */
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-in-out; /* 顺滑动画 */
+}
+
+.faq details[open] > summary::before {
+    transform: rotate(90deg); /* 展开时旋转 */
+}
+
+.lead-capture-card {
+  text-align: center;
+}
+
+
+/* =================================================================== */
+/* 文章展厅卡片专属样式 (Article Card Styles) */
+/* =================================================================== */
+
+.article-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  
+  /* =================================================================== */
+  /* 核心修改在这里：给卡片一个最大宽度，防止被过度拉伸 */
+  /* =================================================================== */
+  max-width: 360px; 
+  margin: 0 auto; /* 让卡片在网格单元格内居中 */
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.article-card a.card-link-wrapper {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.article-card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1; /* 我们为文章卡片定制的修长比例 */
+  object-fit: cover;
+}
+
+.article-card .card-content {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-card .card-content h3 {
+  margin-top: 0;
+}
+
+.article-card .card-content p {
+  flex-grow: 1;
+}
+
+.article-card .read-more {
+  margin-top: 16px;
+  font-weight: bold;
+  color: #FF9933;
+}
+
+.tolerance-image {
+  max-width: 480px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
+/*thanyou页面底部边框高亮*/
+
+ .resource-links {
+    text-align: left;
+    display: grid;
+    gap: 16px;
+  }
+
+  .resource-card {
+    display: block;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    transition: border-color 0.2s ease;
+  }
+
+  .resource-card:hover {
+    border-color: #FF9933; /* 品牌高亮色 */
+  }
+
+/*文章首页链接
+/* --- Problem Card Link Styling --- */
+.problem-card .read-more {
+  color: #FF9933; /* <-- REPLACE THIS with your actual brand color hex code */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.problem-card .read-more:hover {
+  color: #0056b3; /* <-- REPLACE THIS with a darker shade of your brand color */
+  text-decoration: underline;
+}
+
+
+/*头部导航二级菜单样式
+
+/* --- 优雅的下拉菜单样式 --- */
+
+/* --- 优雅的下拉菜单样式 (已修正) --- */
+/* --- 优雅的下拉菜单样式 (最终修正版) --- */
+
+
+
+/* ================================================================
+   导航栏样式 (最终修正版)
+================================================================ */
+
+/* 在这里定义您的品牌色 */
+:root {
+  --brand-color: #FF9933;
+  --text-color-on-brand: #ffffff;
+}
+
+/* --- 1. 基础结构与全局重置 --- */
+
+nav ul {
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+  display: flex;
+}
+
+/* 关键修复：强制为导航内所有链接、在所有状态下，移除下划线 */
+nav ul a,
+nav ul a:hover,
+nav ul a:focus,
+nav ul a:visited {
+    text-decoration: none !important;
+    border-bottom: none !important; /* 同时处理用边框模拟的下划线 */
+}
+
+/* --- 2. 一级菜单样式 --- */
+
+/* 一级菜单链接的默认样式 */
+nav > ul > li > a {
+  color: #333;
+  padding: 15px 20px;
+  display: block;
+  position: relative;
+  transition: color 0.3s ease; /* 为悬停添加平滑过渡 */
+}
+
+/* 一级菜单链接的【悬停效果】(非激活状态) */
+nav > ul > li > a:hover {
+  color: var(--brand-color); /* 鼠标悬停时，文字变为品牌色 */
+}
+
+/* 一级菜单链接的【高亮效果】(激活状态) */
+nav > ul > li > a.active,
+nav > ul > li > a.active-parent {
+  color: var(--brand-color); /* 文字变为品牌色 */
+  background-color: transparent; /* 确保背景透明 */
+}
+
+
+/* --- 3. 二级 (下拉) 菜单样式 --- */
+
+nav ul li.has-dropdown {
+  position: relative;
+}
+
+nav ul li.has-dropdown > a::after {
+  content: ' ▼'; 
+  font-size: 0.6em; 
+  display: inline-block; 
+  margin-left: 5px; 
+  transition: transform 0.3s ease;
+}
+
+nav ul li.has-dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+
+/* 下拉菜单容器 */
+nav ul li .dropdown-menu {
+  list-style: none; 
+  margin: 0; 
+  padding: 8px 0; 
+  background-color: #ffffff;
+  border-radius: 8px; 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  min-width: 220px; 
+  position: absolute; 
+  top: 100%; 
+  left: 0; 
+  z-index: 1000;
+  opacity: 0; 
+  visibility: hidden; 
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+/* 悬停时显示下拉菜单 */
+nav ul li.has-dropdown:hover .dropdown-menu {
+  opacity: 1; 
+  visibility: visible; 
+  transform: translateY(0);
+}
+
+/* 二级菜单链接的默认样式 */
+nav ul li .dropdown-menu li a {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  color: #333;
+  padding: 12px 20px;
+  font-size: 0.95em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 二级菜单链接的【悬停与高亮效果】(统一为背景块) */
+nav ul .dropdown-menu li a:hover,
+nav ul .dropdown-menu li a.active {
+  background-color: var(--brand-color) !important;
+  color: var(--text-color-on-brand) !important;
+  border-radius: 5px;
+}
+
+/*页脚样式
+/* Footer Branding Section */
+/* === 全新页脚布局样式 === */
+
+footer .container {
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+/* 四列网格布局 */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 桌面端平均分为四列 */
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444; /* 分割线 */
+}
+
+/* 统一处理每一列的标题和列表样式 */
+.footer-grid h4 {
+    margin-bottom: 15px;
+    color: #111111; /* 标题更突出 */
+}
+
+.footer-grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-grid li {
+    margin-bottom: 10px;
+}
+
+/* 第四列：品牌与联系方式的特殊样式 */
+.footer-brand-contact .footer-logo {
+    max-width: 160px; /* 稍微缩小logo，让布局更和谐 */
+    margin-bottom: 15px;
+}
+
+.footer-brand-contact .footer-slogan {
+    font-size: 0.9em;
+    color: #adb5bd;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.footer-brand-contact .contact-info p {
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+/*底部版权*/
+.footer-bottom {
+    display: flex;
+    justify-content: center;   /* 中心对齐 */
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.8em;
+    color: #adb5bd;
+}
+
+
+/* 响应式适配 */
+@media (max-width: 992px) { /* 平板 */
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr); /* 平板上变为两列 */
+    }
+}
+
+@media (max-width: 576px) { /* 手机 */
+    .footer-grid {
+        grid-template-columns: 1fr; /* 手机上变为一列 */
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-bottom p {
+        margin-bottom: 10px;
+    }
+}
+
+/*首页卡片
+/* 将这个添加到你的 style.css 文件中 */
+
+/* =================================================== */
+/* 请将此段代码复制到您的 style.css 文件中         */
+/* =================================================== */
+
+/* 控制卡片本身的样式 */
+.feature-card {
+  flex: 1; /* 允许卡片在flex容器中弹性增长 */
+  min-width: 280px; /* 保证卡片在窄屏幕下的最小宽度 */
+  max-width: 320px; /* 限制卡片在宽屏幕下的最大宽度 */
+  
+  padding: 0; /* 将内边距清零，因为图片要通栏 */
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  
+  /* (可选) 让卡片内的文字也居中对齐 */
+  /* text-align: center; */
+}
+
+/* 控制卡片内部的图片 */
+.feature-card img {
+  width: 100%; /* 图片宽度占满卡片 */
+  height: auto; /* 高度自适应，防止变形 */
+  border-radius: 8px 8px 0 0; /* 只给图片顶部设置圆角 */
+  display: block; /* 确保图片表现为块级元素，消除底部多余空隙 */
+}
+
+/* 控制卡片内的文字内容区域 */
+.feature-card .card-content {
+  padding: 15px 20px 20px 20px; /* 为文字内容提供内边距 */
+}
+
+/* 请确保这段CSS代码在您的style.css文件中 */
+
+.footer-grid-5-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  padding-bottom: 30px;
+}
+
+
+/* --- Thank You Page Styles --- */
+.thank-you-container {
+  max-width: 750px;
+  text-align: center;
+}
+
+.thank-you-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid #e9ecef;
+}
+
+.thank-you-title {
+  font-size: 2.5em;
+  color: #2ecc71; /* A green that indicates success */
+  margin-bottom: 16px;
+}
+
+.thank-you-subtitle {
+  font-size: 1.2em;
+  margin: 0 auto 48px;
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+.section-subtitle {
+  font-size: 1.6em;
+  margin-top: 0;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.next-steps-timeline {
+  margin-bottom: 56px;
+  text-align: left;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.timeline-item {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  border: 1px solid #e9ecef;
+}
+
+.timeline-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #FF9933;
+  color: #fff;
+  font-weight: bold;
+  margin: 0 auto 15px; /* 改动在这里 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-item strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.timeline-item p {
+  font-size: 0.9em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.next-step-box {
+  margin-top: 48px;
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  text-align: left;
+}
+
+.resource-links .resource-card {
+  display: block;
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+}
+
+.resource-links .resource-card:hover {
+  border-color: #FF9933;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.resource-links .resource-card small {
+  color: #666;
+}
+
+/* --- Generic Thank You Page Styles --- */
+.thank-you-container {
+  max-width: 700px;
+  text-align: center;
+}
+.thank-you-title {
+  font-size: 2.5em;
+  color: #2ecc71;
+  margin-bottom: 16px;
+}
+.thank-you-subtitle {
+  font-size: 1.2em;
+  margin: 0 auto 10px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+.spam-note {
+  color: #666;
+  margin-bottom: 48px;
+  font-size: 0.9em;
+}
+.primary-cta-box {
+  background-color: #f8f9fa;
+  padding: 32px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+.primary-cta-box .section-subtitle {
+  font-size: 1.6em;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.secondary-action {
+  margin-top: 32px;
+}
+.secondary-link {
+  text-decoration: underline;
+  color: #FF9933;
+  font-size: 0.95em;
+}
+
+/* --- Styles for casestudy-sent.html --- */
+.explore-more-section {
+  margin-top: 48px;
+  border-top: 1px solid #e9ecef;
+  padding-top: 32px;
+  text-align: center;
+}
+.explore-title {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 1.3em;
+  color: #333;
+}
+.explore-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.explore-card {
+  display: block;
+  padding: 16px 24px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #FF9933;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+  flex-basis: 250px;
+}
+.explore-card:hover {
+  border-color: #FF9933;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.explore-card strong {
+  display: block;
+  font-size: 1.1em;
+}
+.explore-card span {
+  display: block;
+  font-size: 0.85em;
+  color: #777;
+}
+
+
+.secondary-action {
+  margin-top: 32px;
+  /* ✅ 就加这一行就够了 */
+  text-align: center;
+}
+
+/* 你的 .cta-button 样式保持不变 */
+.cta-button {
+  /* ... 这里是你按钮的颜色、大小、边框等样式 ... */
+  display: inline-block; /* 确保按钮不是占满一整行 */
+  padding: 12px 24px;
+  /* ... 其他样式 ... */
+}

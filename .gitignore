@@ -1,0 +1,8 @@
+# 忽略API配置文件 (包含密码)
+api/config/config.php
+
+# 也可以添加其他常见的忽略项 (可选，但推荐)
+/vendor/
+node_modules/
+.DS_Store
+Thumbs.dbRequire all denied

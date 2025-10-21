@@ -1,0 +1,45 @@
+/* main.css — Gorgeo Fasteners main stylesheet */
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff; color: #333; }
+header, footer { background: #f9f9f9; padding: 16px 32px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 16px; }
+nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 24px; }
+nav a { text-decoration: none; color: #333; font-weight: 500; }
+.hero { background: linear-gradient(135deg, #fdf7f1 60%, #ffffff); padding: 100px 16px 80px; text-align: center; }
+.hero h1 { font-size: 2.8em; margin-bottom: 16px; color: #000; }
+.hero p { font-size: 1.2em; margin-bottom: 32px; color: #666; }
+.cta-button { background: #FF9933; color: #fff; padding: 14px 28px; border-radius: 20px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.3s ease, transform 0.3s ease; border: none; cursor: pointer; }
+.cta-button:hover { background: #e67e00; transform: translateY(-2px); }
+.cards, .support { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; text-align: center; }
+.card, .support-card { background: #fffaf5; padding: 32px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1 1 300px; transition: transform 0.3s ease; display: flex; flex-direction: column; }
+.card p, .support-card p { flex-grow: 1; }
+.card:hover, .support-card:hover { transform: translateY(-4px); }
+.section { padding: 64px 16px; }
+.section.dark { background: #fdf7f1; }
+.section h2 { text-align: center; margin-bottom: 24px; font-size: 2em; position: relative; }
+.section h2::after { content: ''; display: block; width: 80px; height: 4px; background: #FF9933; margin: 12px auto 0; border-radius: 2px; }
+.faq details { margin-bottom: 16px; background: #fff; padding: 16px 20px; border-radius: 20px; border: 1px solid #eee; }
+video { margin-top: 24px; border-radius: 16px; width: 100%; max-height: 540px; object-fit: cover; }
+.trust-bar { padding: 30px 0; background-color: #fff; border-bottom: 1px solid #eee; }
+.trust-bar .logos { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px; }
+.trust-bar .logos img { max-height: 40px; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease; }
+.trust-bar .logos img:hover { filter: none; opacity: 1; }
+.trust-bar h2 { font-size: 1rem; text-transform: uppercase; color: #666; letter-spacing: 1px; margin: 0 0 20px; text-align: center; }
+.trust-bar h2::after { display: none; }
+.lead-form { margin-top: auto; padding-top: 24px; }
+.form-group { margin-bottom: 16px; }
+.form-group input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; }
+
+footer { padding: 40px 16px; font-size: 0.9em; color: #888; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; }
+footer h4 { color: #333; margin-top: 0; }
+footer ul { list-style: none; padding: 0; line-height: 1.8; }
+footer a { color: #555; text-decoration: none; }
+footer a:hover { color: #FF9933; }
+footer p { margin: 0.5em 0; }
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2em; }
+  .cta-button { padding: 12px 20px; }
+  footer { padding: 30px 16px; }
+}

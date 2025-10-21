@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Sending Test</title>
+</head>
+<body>
+
+<!-- ✅ 顶部提示条 -->
+<div id="sending-bar" style="display: none; background: #fff3cd; color: #856404; padding: 12px; text-align: center; font-weight: bold; border-bottom: 1px solid #ffeeba;">
+  📤 Sending your PDF... Please wait.
+</div>
+
+<!-- ✅ 表单 -->
+<form id="test-form" action="https://example.com" method="POST" onsubmit="return showSendingBar(this);">
+  <input type="email" name="email" placeholder="Your Work Email" required />
+  <button type="submit">Send Me the PDF</button>
+</form>
+
+<!-- ✅ 脚本 -->
+<script>
+  function showSendingBar(form) {
+    const bar = document.getElementById('sending-bar');
+    bar.style.display = 'block';
+
+    // ✅ 关键：延迟提交表单，确保提示条先显示
+    setTimeout(() => {
+      form.submit();
+    }, 100);  // 可调整为50或80ms，看浏览器表现
+    return false; // 阻止立即跳转
+  }
+</script>
+
+</body>
+</html>

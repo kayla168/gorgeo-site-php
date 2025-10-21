@@ -1,0 +1,242 @@
+/**
+ * 整合后的全功能 JavaScript 文件 (优化版)
+ * 包含:
+ * 1. 动态加载 HTML 公共部分 (页头、页脚、侧边栏、作者信息)。
+ * 2. 导航链接 'active' 状态的智能高亮。
+ * 3. 移动端导航 (汉堡菜单) 交互。
+ * 4. 移动端下拉菜单点击展开。
+ * 5. 表单提交按钮的“发送中”状态。
+ * 6. 路径+meta双策略动态加载 sidebar。
+ * 7. 全局链接：所有外部链接均在新标签页打开（已修复）。
+ */
+
+// ===================================================================
+// ✅ 表单提交函数
+// ===================================================================
+function showSendingButton(form) {
+  const button = form.querySelector("button[type='submit']");
+  if (button) {
+    button.disabled = true;
+    button.innerText = "Sending...";
+    button.style.backgroundColor = "#ccc";
+    button.style.color = "#666";
+    button.style.cursor = "not-allowed";
+  }
+  // 给浏览器一点时间来重绘按钮
+  setTimeout(() => {
+    form.submit();
+  }, 80);
+  return false; 
+}
+
+// ===================================================================
+// ✅ includes.js 核心逻辑
+// ===================================================================
+(function () {
+
+  // --- 获取基础路径 ---
+  function getBasePath() {
+    const mainScript = document.getElementById('main-include-script');
+    if (!mainScript) {
+      console.error("Script with id 'main-include-script' not found.");
+      return "/";
+    }
+    const scriptUrl = new URL(mainScript.src, window.location.href);
+    let pathName = scriptUrl.pathname;
+    const pathSuffix = "assets/js/includes.js";
+    if (!pathName.endsWith(pathSuffix)) {
+      console.warn("Unexpected includes.js path. Defaulting to root.");
+      return "/";
+    }
+    return pathName.substring(0, pathName.lastIndexOf(pathSuffix));
+  }
+  
+  /**
+   * ✅ [新增] 统一处理链接的函数
+   * 将指定容器内的所有外部链接设置为在新标签页打开
+   * @param {HTMLElement} container - 查找链接的容器元素，默认为整个文档
+   */
+  function setLinksToOpenInNewTab(container = document) {
+    const links = container.querySelectorAll('a[href]');
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      // 排除锚点链接和JavaScript调用
+      if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
+    });
+  }
+
+  // --- 加载 HTML 片段 ---
+  function loadHTML(selector, filePath, basePath) {
+    const element = document.querySelector(selector);
+    if (element) {
+      const fullPath = normalizePath(basePath + filePath);
+      fetch(fullPath)
+        .then(response => {
+          if (!response.ok) throw new Error(`File not found: ${fullPath}`);
+          return response.text();
+        })
+        .then(data => {
+          element.innerHTML = data;
+
+          // 内容加载后，处理其内部的链接和图片路径
+          if (selector === '#header-placeholder' || selector === '#footer-placeholder' || selector === '#sidebar-placeholder') {
+            prefixLinksWithBasePath(basePath, selector);
+          }
+          
+          // Header 加载后，初始化导航功能
+          if (selector === '#header-placeholder') {
+            applyActiveClassByURL();
+            initializeHeaderInteractions();
+          }
+
+          // ✅ [关键] 对新加载进来的内容再次执行链接处理
+          setLinksToOpenInNewTab(element);
+        })
+        .catch(error => console.error(`Error loading ${filePath}:`, error));
+    }
+  }
+
+  // --- 为链接和图片加 basePath 前缀 (兼容本地和线上) ---
+  function prefixLinksWithBasePath(basePath, contextSelector) {
+    let processedPath = basePath;
+    if (processedPath === '/') {
+        processedPath = '';
+    } else if (processedPath.endsWith('/')) {
+        processedPath = processedPath.slice(0, -1);
+    }
+    
+    if (processedPath === '') {
+        return;
+    }
+
+    const contextElement = document.querySelector(contextSelector);
+    if (!contextElement) return;
+
+    // 处理所有链接
+    contextElement.querySelectorAll('a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('//') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+        return;
+      }
+      if (href.startsWith('/')) {
+          link.setAttribute('href', processedPath + href);
+      }
+    });
+
+    // 处理所有图片
+    contextElement.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (!src || src.startsWith('http') || src.startsWith('//')) {
+        return;
+      }
+      if (src.startsWith('/')) {
+          img.setAttribute('src', processedPath + src);
+      }
+    });
+  }
+
+  // --- 高亮当前导航 ---
+  function applyActiveClassByURL() {
+    const currentPath = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\/+$/, '/');
+    const navLinks = document.querySelectorAll('nav a');
+    let bestMatchLink = null;
+    navLinks.forEach(link => {
+      if (!link.href) return;
+      try {
+        const linkPath = new URL(link.href).pathname.replace(/\/index\.html$/, '/').replace(/\/+$/, '/');
+        if (currentPath.startsWith(linkPath)) {
+          if (!bestMatchLink || linkPath.length > new URL(bestMatchLink.href).pathname.length) {
+            bestMatchLink = link;
+          }
+        }
+      } catch (e) {
+        console.error("Could not parse link href:", link.href, e);
+      }
+    });
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      link.classList.remove('active-parent');
+    });
+
+    if (bestMatchLink) {
+      bestMatchLink.classList.add('active');
+      const parentDropdown = bestMatchLink.closest('.has-dropdown');
+      if (parentDropdown) {
+        const parentLink = parentDropdown.querySelector('a');
+        if (parentLink) {
+          parentLink.classList.add('active-parent');
+        }
+      }
+    }
+  }
+
+  // --- 格式化路径 ---
+  function normalizePath(path) {
+    return path.replace(/([^:])(\/\/+)/g, '$1/');
+  }
+
+  // --- 初始化导航交互 ---
+  function initializeHeaderInteractions() {
+    const hamburger = document.getElementById('hamburger-menu');
+    const body = document.body;
+    if (hamburger) {
+      hamburger.addEventListener('click', function () {
+        body.classList.toggle('nav-open');
+      });
+    }
+
+    const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
+    function isMobileView() {
+      return window.innerWidth <= 768;
+    }
+
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        if (isMobileView()) {
+          e.preventDefault();
+          const parentLi = this.parentElement;
+          parentLi.classList.toggle('menu-open');
+        }
+      });
+    });
+  }
+
+  // --- 获取应加载的 Sidebar 文件名 ---
+  function getSidebarFile() {
+    const path = window.location.pathname.toLowerCase();
+    const metaSidebar = document.querySelector('meta[name="sidebar-type"]');
+    if (metaSidebar) {
+      const type = metaSidebar.content.trim().toLowerCase();
+      if (type === 'applications') return '_sidebar-applications.html';
+      if (type === 'blog') return '_sidebar-blog.html';
+    }
+    if (path.includes('/applications/') || path.includes('/agv-') || path.includes('/crossbelt-') || path.includes('/wedge-lock-')) {
+      return '_sidebar-applications.html';
+    }
+    if (path.includes('/blog/')) {
+      return '_sidebar-blog.html';
+    }
+    return '_sidebar.html';
+  }
+
+  // --- 页面加载执行入口 ---
+  document.addEventListener("DOMContentLoaded", function () {
+    const basePath = getBasePath();
+
+    loadHTML('#header-placeholder', '_header.html', basePath);
+    loadHTML('#footer-placeholder', '_footer.html', basePath);
+
+    const sidebarFile = getSidebarFile();
+    loadHTML('#sidebar-placeholder', sidebarFile, basePath);
+
+    loadHTML('#author-bio-placeholder', '_author-bio.html', basePath);
+
+    // ✅ [关键] 页面初始加载时，对所有静态链接执行一次处理
+    setLinksToOpenInNewTab(document);
+  });
+
+})();

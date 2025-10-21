@@ -1,0 +1,7 @@
+# Our security policy for Gorgeo Fasteners
+Contact: mailto:info@gorgeofasteners.com
+Contact: https://www.gorgeofasteners.com/contact/
+Encryption: https://www.gorgeofasteners.com/pgp-key.txt
+Preferred-Languages: en
+Canonical: https://www.gorgeofasteners.com/.well-known/security.txt
+Expires: 2026-10-01T00:00:00Z

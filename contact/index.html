@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – Gorgeo Fasteners</title>
+  <meta name="description" content="Learn more about Gorgeo Fasteners – our mission, values, and the engineers behind the ±0.01mm precision geometry solutions." />
+  <link rel="canonical" href="https://www.gorgeofasteners.com/contact/" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+  <!-- 动态注入：顶部导航 -->
+  <div id="header-placeholder"></div>
+   <main>
+  <section class="section">
+    <div class="container">
+      <h1 style="text-align: center; font-size: 2.8em;">How Can We Help?</h1>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 48px; font-size: 1.2em;">
+        Please choose the best channel for your needs. Our team responds within one business day.
+      </p>
+
+      <div class="contact-grid">
+        <!-- 左侧：技术表单 -->
+        <div class="contact-column card">
+          <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+            <img src="../images/catherinezhang.webp" alt="Catherine Zhang" style="width: 80px; height: 80px; border-radius: 50%;">
+            <div>
+              <h3 style="margin-bottom: 5px;">Technical & Drawing Inquiries</h3>
+              <p style="margin: 0;">Directly reach our Assembly Fit Consultant, <strong>Catherine Zhang</strong>.</p>
+               <a href="https://www.linkedin.com/in/catherine-zhang-fasteners/" target="_blank" rel="noopener noreferrer" style="font-size: 0.9em;color: #FF9933">Connect on LinkedIn</a>
+            </div>
+          </div>
+          <p>For engineering questions, drawing reviews, or sample requests, please use the form below.</p>
+
+          <form action="../api/technical-inquiry.php" method="POST" enctype="multipart/form-data" onsubmit="return showSendingButton(this);">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Your Work Email" required />
+            </div>
+            <div class="form-group">
+              <input type="text" name="company" placeholder="Company Name" />
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Describe your challenge or question..." rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="drawing-file" style="display: block; margin-bottom: 10px;">📎 Attach Drawing (Optional):</label>
+              <input type="file" name="drawing" id="drawing-file" />
+            </div>
+            <button type="submit" class="cta-button w-100">Send to Engineering Team</button>
+          </form>
+
+          <p style="text-align: center; margin-top: 20px;">
+            Or email directly: <a href="mailto:catherinezhang@gorgeofastners.com" style="color:  #FF9933;">catherinezhang@gorgeofastners.com</a>
+          </p>
+        </div>
+
+        <!-- 右侧：业务信息 -->
+        <div class="contact-column card">
+          <h3>General & Business Inquiries</h3>
+          <p>For partnerships, order status, or other business matters, please use the contact info below.</p>
+
+          <div style="line-height: 2.5em; margin: 20px 0;">
+            <p><strong>Email:</strong> <a href="mailto:catherinezhang@gorgeofastners.com" style="color:  #FF9933;">catherinezhang@gorgeofastners.com</a></p>
+            <p><strong>Catherine Zhang's LinkedIn:</strong> <a href="https://www.linkedin.com/in/catherine-zhang-gorgeofasteners/" target="_blank" style="color:  #FF9933;">Catherine Zhang Page</a></p>
+             <p><strong>Email:</strong> <a href="mailto:info@gorgeofastners.com" style="color:  #FF9933;">info@gorgeofastners.com</a></p>
+            <p><strong>Gorgeo Fasteners on LinkedIn:</strong> <a href="https://www.linkedin.com/company/gorgeofasteners" target="_blank" style="color:  #FF9933;">Company Page</a></p>
+            <p><strong>Office:</strong> Shenzhen, China</p>
+            <p><strong>Hours:</strong> Mon–Fri, 9:00–18:00 (UTC+8)</p>
+          </div>
+
+          <hr style="margin: 20px 0;">
+          <h4>What to Expect:</h4>
+          <ul style="padding-left: 20px;">
+            <li>An immediate confirmation of your inquiry.</li>
+            <li>A detailed response within 24 business hours.</li>
+            <li>Complete confidentiality for all submitted data.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+   
+  <!-- 动态注入：底部导航 -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JS：自动注入 header/footer + 动态路径处理 -->
+  <script id="main-include-script" src="../assets/js/includes.js"></script>
+
+  <script src="../assets/js/form-loading.js"></script>
+
+</body>
+</html>

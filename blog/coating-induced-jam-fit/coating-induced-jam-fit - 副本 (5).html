@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Case Study: How a 0.05mm Coating Caused a Critical Assembly Jam - Gorgeo Fasteners</title>
+  <meta name="description" content="A deep-dive analysis of a press-fit failure where a part passed CAD but jammed in assembly. Learn how an unmodeled powder coating layer created a -0.08mm interference and the engineering fixes to prevent it." />
+  <link rel="canonical" href="/blog/coating-induced-jam-fit/" />
+  <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+    <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Case Study: How a 0.05mm Coating Caused a Critical Assembly Jam" />
+  <meta property="og:description" content="A deep-dive analysis of a press-fit failure where a part passed CAD but jammed in assembly." />
+  <meta property="og:url" content="/blog/coating-induced-jam-fit/" />
+  <meta property="og:site_name" content="Gorgeo Fasteners" />
+  <meta property="article:published_time" content="2025-10-14T09:00:00+00:00" />
+  <meta property="article:modified_time" content="2025-10-14T09:00:00+00:00" />
+  <meta property="og:image" content="/images/drop032-cad-fit-clearance-0.02mm.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/images/drop032-cad-fit-clearance-0.02mm.jpg" />
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Case Study: How a 0.05mm Coating Caused a Critical Assembly Jam",
+        "description": "A deep-dive analysis of a press-fit failure where a part passed CAD but jammed in assembly. Learn how an unmodeled powder coating layer created a -0.08mm interference and the engineering fixes to prevent it.",
+        "image": "/images/drop032-cad-fit-clearance-0.02mm.jpg",
+        "datePublished": "2025-10-14T09:00:00+00:00",
+        "author": { "@type": "Person", "name": "Catherine Zhang" },
+        "publisher": { "@type": "Organization", "name": "Gorgeo Fasteners", "logo": { "@type": "ImageObject", "url": "/assets/images/logo.png" }},
+        "mainEntityOfPage": "/blog/coating-induced-jam-fit/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why does a part that passes CAD review still jam during assembly?",
+            "acceptedAnswer": { "@type": "Answer", "text": "This often happens when post-processing steps like powder coating are not modeled in the CAD file. Even a thin layer of 0.05mm can eliminate designed clearances and create significant interference, leading to jamming." }
+          },
+          {
+            "@type": "Question",
+            "name": "How can you prevent coating-induced fit failures?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Key engineering fixes include: 1) Adding a chamfer at the insertion lead. 2) Masking the coating near critical fit zones or redesigning tolerances to account for coating stack-up. 3) Using self-guided assembly techniques instead of force-fitting." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+        <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+        <main>
+  <div class="article-container">
+    
+    <!-- 左边：文章内容 -->
+    <article class="article-content">
+      <h1>Case Study: How a 0.05mm Coating Caused a Critical Assembly Jam</h1>
+
+      <div class="author-info">
+        <img src="../../images/catherinezhang.webp" alt="Catherine Zhang, Assembly Fit Consultant">
+        <div>
+          <strong>Catherine Zhang</strong><br>
+          <span style="font-size: 0.9em; color: var(--text-light);">Assembly Fit Consultant @ Gorgeo Fasteners</span><br>
+          <a href="https://www.linkedin.com/in/catherine-zhang-fasteners/" target="_blank" rel="noopener noreferrer" style="font-size: 0.9em;">Connect on LinkedIn</a>
+        </div>
+      </div>
+
+      <nav class="table-of-contents">
+        <h3 style="margin-top:0; margin-bottom: 12px; border: none;">In This Teardown:</h3>
+        <ol>
+          <li><a href="#problem">The Problem: A "Perfect" Fit That Failed</a></li>
+          <li><a href="#diagnosis">Diagnosis: The Unmodeled Coating Layer</a></li>
+          <li><a href="#solution">Solution: 3 Actionable Engineering Fixes</a></li>
+          <li><a href="#takeaway">Key Takeaways for Design Teams</a></li>
+        </ol>
+      </nav>
+
+      <p class="lead-paragraph">
+        This report dissects a coating-induced jamming event, where a powder-coated fit passed CAD review but jammed during press-fit assembly...
+      </p>
+
+      <section id="problem">
+        <h2>The Problem: A "Perfect" Fit That Failed</h2>
+        <blockquote>“Previous batches worked fine. This one just jammed—same vendor, same coating, same CAD.”</blockquote>
+        <p>This was the report from our client. A powder-coated interference sleeve...</p>
+      </section>
+
+      <section id="diagnosis">
+        <h2>Diagnosis: The Unmodeled Coating Layer</h2>
+        <p>Our analysis pinpointed the issue as a classic case of unmodeled finishes...</p>
+        <figure>
+          <img src="../coating-induced-jam-fit/drop032-cad-fit-clearance-0.02mm.webp" alt="Diagram showing powder coating interference">
+          <figcaption>TRAP #1: The original CAD showed a working fit...</figcaption>
+        </figure>
+        <p>This interference forced the insertion pin onto an eccentric path...</p>
+        <figure>
+          <img src="../coating-induced-jam-fit/drop032-coating-flake-interference-zone.webp" alt="Comparison of eccentric vs corrected path">
+          <figcaption>The eccentric path (left) vs corrected chamfer (right).</figcaption>
+        </figure>
+      </section>
+
+      <section id="solution">
+        <h2>Solution: 3 Actionable Engineering Fixes</h2>
+        <div class="callout-box">
+          <ol>
+            <li><strong>Design Fix:</strong> Add a <strong>0.5mm / 30° chamfer</strong>...</li>
+            <li><strong>Process Fix:</strong> <strong>Mask the coating</strong> near fit zones...</li>
+            <li><strong>Assembly Fix:</strong> Use <strong>slide-in techniques</strong> instead of mallets...</li>
+          </ol>
+        </div>
+
+        <!-- 新增 TRAP #3 配图 -->
+        <figure>
+          <img src="../coating-induced-jam-fit/drop032-insertion-path-offset-stress.webp" alt="Powder coating flake and interference zone under stress">
+          <figcaption>TRAP #3: Coating flake observed at high-stress zones, triggering lock-up after runtime.</figcaption>
+        </figure>
+      </section>
+
+      <section id="takeaway" class="cta-box">
+        <h2>Key Takeaways for Design Teams</h2>
+        <p>This case highlights a disconnect between design and manufacturing...</p>
+        <ul>
+          <li>Do you log coating-related fit failures in your QA path?</li>
+          <li>Is there a standard communication interface between vendors and design?</li>
+        </ul>
+        <div style="text-align: center; margin-top: 20px;">
+          <a href="/path-to-your/Drop032_GorgeoFasteners_CoatingJamFit.pdf" target="_blank" class="cta-button">Download Full Teardown Sketch (PDF)</a>
+        </div>
+      </section>
+
+      <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <h3>Why does a part that passes CAD review still jam during assembly?</h3>
+        <p>Because post-processing steps like powder coating aren’t modeled...</p>
+        <h3>How can you prevent coating-induced fit failures?</h3>
+        <p>By chamfering, masking, and ensuring guided assembly...</p>
+      </section>
+    </article>
+
+    <!-- 右边：侧边栏 -->
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <h4>Facing a Similar Challenge?</h4>
+        <p>Our assembly fit consultants can help you diagnose and solve joint failures.</p>
+        <a href="../../contact/" class="cta-button w-100">Contact an Engineer</a>
+      </div>
+
+      <div class="sidebar-widget">
+        <h4>Related Resources</h4>
+        <ul>
+          <li><a href="/blog/vibration-loosening-fix/">Guide to Vibration Loosening</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script id="main-include-script" src="../../assets/js/includes.js"></script>
+</body>
+</html>

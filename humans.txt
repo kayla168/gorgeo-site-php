@@ -1,0 +1,18 @@
+/* TEAM */
+Developer: Catherine Zhang
+Role: Assembly Fit Consultant / Geometry Failure Diagnostician
+Company: Gorgeo Fasteners
+Website: https://www.gorgeofasteners.com
+GitHub: https://github.com/kayla168
+Location: Tokyo, Japan
+
+/* THANKS */
+Powered by: ±0.01mm tolerances, late-night coffee, and stubborn root cause obsession.
+
+/* SITE PURPOSE */
+We don't just sell parts. We fix hidden failures.
+This site helps OEMs, integrators, and engineers diagnose geometry-induced misfits
+before production fails on the floor.
+
+/* LAST UPDATED */
+2025-10-19

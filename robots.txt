@@ -1,0 +1,18 @@
+# Gorgeo Fasteners Robots Exclusion Protocol
+# We welcome all legitimate search engine crawlers.
+
+User-agent: *
+Disallow: /api/
+Disallow: /assets/
+Disallow: /contact/thank-you.html
+Disallow: /thank-you-home/
+Disallow: /thank-you-blog/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap Location
+Sitemap: https://www.gorgeofasteners.com/sitemap.xml

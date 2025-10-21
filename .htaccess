@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ----------------------------------------------------------------------
+  # Section 1: Conditions to prevent rewriting existing files/folders
+  # ----------------------------------------------------------------------
+  # 如果请求的URL对应一个真实存在的文件，则不执行下面的规则
+  RewriteCond %{REQUEST_FILENAME} !-f
+  # 如果请求的URL对应一个真实存在的文件夹，则不执行下面的规则
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # ----------------------------------------------------------------------
+  # Section 2: The Portable Rewrite Rule
+  # ----------------------------------------------------------------------
+  # 这条规则是可移植的。
+  # 它的路径是相对于 .htaccess 文件所在的位置来解析的。
+  # 无论 .htaccess 是在 /gorgeo-site/ 还是在服务器根目录 /，
+  # 它都能正确地将请求转发给同级的 drop/fix/index.php 文件。
+  RewriteRule ^drop/([a-zA-Z0-9-]+)/?$ drop/fix/index.php?kit=$1 [L,QSA]
+
+</IfModule>
