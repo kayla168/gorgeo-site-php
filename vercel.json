@@ -1,7 +1,8 @@
 {
   "functions": {
     "api/**/*.php": {
-      "runtime": "vercel-php@0.6.0"
+      "runtime": "vercel-php@2.0.2",
+      "includeFiles": "drop/**"
     }
   }
 }
