@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/**/*.php": {
-      "runtime": "now-php@1.0.0",
+      "runtime": "@vercel/php@0.7.1",
       "includeFiles": "drop/**"
     }
   }
