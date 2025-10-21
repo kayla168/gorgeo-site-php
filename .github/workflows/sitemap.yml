@@ -1,0 +1,39 @@
+name: Generate and Submit Sitemap
+
+on:
+  push:
+    branches:
+      - main  # 监听主分支的变动
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # 使用 Node.js 版本 16，或者根据你的需要调整
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Generate sitemap
+        run: |
+          npx sitemap-generator-cli https://www.gorgeofasteners.com --output ./public/sitemap.xml  # 生成 sitemap.xml 文件
+
+      - name: Commit sitemap
+        run: |
+          git add public/sitemap.xml
+          git commit -m "Update sitemap"
+          git push
+
+      - name: Submit sitemap to Google Search Console
+        run: |
+          curl -X POST -H "Authorization: Bearer ${{ secrets.GOOGLE_API_KEY }}" \
+          -F "file=@public/sitemap.xml" \
+          "https://www.googleapis.com/upload/searchconsole/v1/sites/https://www.gorgeofasteners.com/sitemaps"
