@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/**/*.php": {
-      "runtime": "@bref.sh/vercel",
+      "runtime": "@bref.sh/vercel@1.0.0",
       "includeFiles": "drop/**"
     }
   }
