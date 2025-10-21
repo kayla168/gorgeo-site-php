@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 动态设置页面标题 -->
+    <title>Fix Kit: Coating-Induced Fit Jam - Gorgeo Fasteners</title>
+    <!-- 确保这里的路径是正确的，相对于网站根目录 -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <!-- 确保你的JS可以正确加载header和footer -->
+    <div id="header-placeholder"></div>
+
+    <main class="section" style="padding: 80px 0;">
+        <div class="container" style="max-width: 600px; margin: 0 auto; text-align: center;">
+
+            <!-- 动态填充标题 -->
+            <h1>Fix Kit: Coating-Induced Fit Jam</h1>
+
+            <!-- 动态填充价值描述 -->
+            <ul style="text-align: left; display: inline-block; margin-top: 20px; margin-bottom: 40px; list-style-position: inside; padding-left: 0;">
+                                    <li style="margin-bottom: 10px;">Includes a step-by-step diagnostic checklist for tolerance issues.</li>
+                                    <li style="margin-bottom: 10px;">Features before/after sketches from a real-world failure case.</li>
+                                    <li style="margin-bottom: 10px;">Learn to spot hidden geometric traps caused by paint, plating, or other coatings.</li>
+                            </ul>
+
+            <div class="card" style="padding: 30px; border: 1px solid #e9ecef; border-radius: 8px;">
+                <!-- 动态填充表单标题 -->
+                <h3 style="margin-top: 0;">Get Your Fix Kit Instantly</h3>
+                
+                <!-- 确保action路径正确，相对于网站根目录 -->
+                <form action="../../api/handle-download-blog" method="POST">
+                    <!-- 关键一步：隐藏字段，告诉后端要发送哪个资料 -->
+                    <input type="hidden" name="document_type" value="coating_fit_jam_kit">
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Work Email" required>
+                    </div>
+                    
+                    <!-- 动态填充按钮文字 -->
+                    <button type="submit" class="cta-button w-100">Download PDF Now</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <!-- 确保这里的路径是正确的，相对于网站根目录 -->
+    
+      <script id="main-include-script" src="../../assets/js/includes.js"></script>
+ <script src="../../assets/js/form-loading.js"></script>
+</body>
+</html>
